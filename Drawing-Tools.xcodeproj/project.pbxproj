@@ -11,6 +11,7 @@
 		4855A0EE255F0AC4004867E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A0ED255F0AC4004867E0 /* ContentView.swift */; };
 		4855A0F0255F0AC5004867E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4855A0EF255F0AC5004867E0 /* Assets.xcassets */; };
 		4855A0F3255F0AC5004867E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4855A0F2255F0AC5004867E0 /* Preview Assets.xcassets */; };
+		4855A0FC255F0AE9004867E0 /* ChiselMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A0FB255F0AE9004867E0 /* ChiselMarker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		4855A0EF255F0AC5004867E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4855A0F2255F0AC5004867E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4855A0F4255F0AC5004867E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4855A0FB255F0AE9004867E0 /* ChiselMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiselMarker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				4855A0EB255F0AC4004867E0 /* Drawing_ToolsApp.swift */,
 				4855A0ED255F0AC4004867E0 /* ContentView.swift */,
+				4855A0FB255F0AE9004867E0 /* ChiselMarker.swift */,
 				4855A0EF255F0AC5004867E0 /* Assets.xcassets */,
 				4855A0F4255F0AC5004867E0 /* Info.plist */,
 				4855A0F1255F0AC5004867E0 /* Preview Content */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4855A0EE255F0AC4004867E0 /* ContentView.swift in Sources */,
+				4855A0FC255F0AE9004867E0 /* ChiselMarker.swift in Sources */,
 				4855A0EC255F0AC4004867E0 /* Drawing_ToolsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
