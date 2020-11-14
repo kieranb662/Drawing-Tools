@@ -20,7 +20,8 @@
 		4855A116255F3500004867E0 /* Trapezoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A115255F3500004867E0 /* Trapezoid.swift */; };
 		4855A119255F3D7E004867E0 /* HorizontalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A118255F3D7E004867E0 /* HorizontalLine.swift */; };
 		4855A11C255F47A1004867E0 /* MoleskinMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A11B255F47A1004867E0 /* MoleskinMarker.swift */; };
-		4855A120255F51B3004867E0 /* AnyCornerRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A11F255F51B3004867E0 /* AnyCornerRectangle.swift */; };
+		4855A120255F51B3004867E0 /* OmniRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A11F255F51B3004867E0 /* OmniRectangle.swift */; };
+		4855A125255F79C3004867E0 /* CornerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A124255F79C3004867E0 /* CornerStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +40,8 @@
 		4855A115255F3500004867E0 /* Trapezoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trapezoid.swift; sourceTree = "<group>"; };
 		4855A118255F3D7E004867E0 /* HorizontalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLine.swift; sourceTree = "<group>"; };
 		4855A11B255F47A1004867E0 /* MoleskinMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleskinMarker.swift; sourceTree = "<group>"; };
-		4855A11F255F51B3004867E0 /* AnyCornerRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCornerRectangle.swift; sourceTree = "<group>"; };
+		4855A11F255F51B3004867E0 /* OmniRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniRectangle.swift; sourceTree = "<group>"; };
+		4855A124255F79C3004867E0 /* CornerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,8 @@
 				4855A104255F28BE004867E0 /* Triangle.swift */,
 				4855A115255F3500004867E0 /* Trapezoid.swift */,
 				4855A11B255F47A1004867E0 /* MoleskinMarker.swift */,
-				4855A11F255F51B3004867E0 /* AnyCornerRectangle.swift */,
+				4855A11F255F51B3004867E0 /* OmniRectangle.swift */,
+				4855A124255F79C3004867E0 /* CornerStyle.swift */,
 				4855A118255F3D7E004867E0 /* HorizontalLine.swift */,
 				4855A107255F2922004867E0 /* BrushStem.swift */,
 				4855A10A255F2A21004867E0 /* ChiselShape.swift */,
@@ -170,6 +173,7 @@
 			files = (
 				4855A0EE255F0AC4004867E0 /* ContentView.swift in Sources */,
 				4855A105255F28BE004867E0 /* Triangle.swift in Sources */,
+				4855A125255F79C3004867E0 /* CornerStyle.swift in Sources */,
 				4855A102255F188C004867E0 /* MarkerView.swift in Sources */,
 				4855A10B255F2A21004867E0 /* ChiselShape.swift in Sources */,
 				4855A10E255F2D93004867E0 /* BeerGlassShape.swift in Sources */,
@@ -177,7 +181,7 @@
 				4855A108255F2922004867E0 /* BrushStem.swift in Sources */,
 				4855A116255F3500004867E0 /* Trapezoid.swift in Sources */,
 				4855A11C255F47A1004867E0 /* MoleskinMarker.swift in Sources */,
-				4855A120255F51B3004867E0 /* AnyCornerRectangle.swift in Sources */,
+				4855A120255F51B3004867E0 /* OmniRectangle.swift in Sources */,
 				4855A0EC255F0AC4004867E0 /* Drawing_ToolsApp.swift in Sources */,
 				4855A119255F3D7E004867E0 /* HorizontalLine.swift in Sources */,
 			);

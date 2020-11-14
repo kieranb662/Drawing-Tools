@@ -47,7 +47,7 @@ struct TieredStem: View {
     }
     
     var antenna: some View {
-        AnyCornerRectangle(topLeft: .round(radius: antennaCornerRadius),
+        OmniRectangle(topLeft: .round(radius: antennaCornerRadius),
                            topRight: .round(radius: antennaCornerRadius),
                            bottomLeft: .square,
                            bottomRight: .square)
@@ -72,7 +72,7 @@ struct TieredStem: View {
     }
     
     var tier2: some View {
-        AnyCornerRectangle(topLeft: .round(radius: tier2CornerRadius),
+        OmniRectangle(topLeft: .round(radius: tier2CornerRadius),
                            topRight: .round(radius: tier2CornerRadius),
                            bottomLeft: .square,
                            bottomRight: .square)
@@ -90,7 +90,7 @@ struct TieredStem: View {
     }
     
     var tier3: some View {
-        AnyCornerRectangle(topLeft: .round(radius: tier3CornerRadius),
+        OmniRectangle(topLeft: .round(radius: tier3CornerRadius),
                            topRight: .round(radius: tier3CornerRadius),
                            bottomLeft: .square,
                            bottomRight: .square)
@@ -106,7 +106,7 @@ struct MoleskinMarker: View {
     var body: some View {
         VStack {
             VStack(spacing: 0) {
-                AnyCornerRectangle(topLeft: .round(radius: 2),
+                OmniRectangle(topLeft: .round(radius: 2),
                                    topRight: .round(radius: 2),
                                    bottomLeft: .square,
                                    bottomRight: .square)
