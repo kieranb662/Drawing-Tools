@@ -47,7 +47,6 @@ extension AnyCornerRectangle: InsettableShape {
     }
 }
 
-
 enum CornerStyle {
     case round(radius: CGFloat)
     case cut(depth: CGFloat)
