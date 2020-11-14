@@ -22,6 +22,7 @@
 		4855A11C255F47A1004867E0 /* MoleskinMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A11B255F47A1004867E0 /* MoleskinMarker.swift */; };
 		4855A120255F51B3004867E0 /* OmniRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A11F255F51B3004867E0 /* OmniRectangle.swift */; };
 		4855A125255F79C3004867E0 /* CornerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A124255F79C3004867E0 /* CornerStyle.swift */; };
+		4855A129255F9357004867E0 /* OmniRectEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A128255F9357004867E0 /* OmniRectEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		4855A11B255F47A1004867E0 /* MoleskinMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleskinMarker.swift; sourceTree = "<group>"; };
 		4855A11F255F51B3004867E0 /* OmniRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniRectangle.swift; sourceTree = "<group>"; };
 		4855A124255F79C3004867E0 /* CornerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerStyle.swift; sourceTree = "<group>"; };
+		4855A128255F9357004867E0 /* OmniRectEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniRectEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				4855A115255F3500004867E0 /* Trapezoid.swift */,
 				4855A11B255F47A1004867E0 /* MoleskinMarker.swift */,
 				4855A11F255F51B3004867E0 /* OmniRectangle.swift */,
+				4855A128255F9357004867E0 /* OmniRectEditor.swift */,
 				4855A124255F79C3004867E0 /* CornerStyle.swift */,
 				4855A118255F3D7E004867E0 /* HorizontalLine.swift */,
 				4855A107255F2922004867E0 /* BrushStem.swift */,
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4855A0EE255F0AC4004867E0 /* ContentView.swift in Sources */,
+				4855A129255F9357004867E0 /* OmniRectEditor.swift in Sources */,
 				4855A105255F28BE004867E0 /* Triangle.swift in Sources */,
 				4855A125255F79C3004867E0 /* CornerStyle.swift in Sources */,
 				4855A102255F188C004867E0 /* MarkerView.swift in Sources */,

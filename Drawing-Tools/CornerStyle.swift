@@ -7,24 +7,56 @@
 
 import SwiftUI
 
-struct CornerSet: OptionSet {
-    var rawValue: Int
+struct Corner {
+    var value: CGFloat
+    var style: Style
     
-    init(rawValue: Int) {
-        self.rawValue = rawValue
+    enum Style: String, CaseIterable, Identifiable {
+        case round
+        case cut
+        case square
+        
+        var id: String { rawValue }
     }
     
-    static let topLeft     = CornerSet(rawValue: 1 << 0)
-    static let topRight    = CornerSet(rawValue: 1 << 1)
-    static let bottomLeft  = CornerSet(rawValue: 1 << 2)
-    static let bottomRight = CornerSet(rawValue: 1 << 3)
+    static func round(radius: CGFloat) -> Corner {
+        Corner(value: radius, style: .round)
+    }
     
-    static let tops: CornerSet = [.topLeft, .topRight]
-    static let bottoms: CornerSet = [.bottomLeft, .bottomRight]
-    static let lefts: CornerSet = [.topLeft, .bottomLeft]
-    static let rights: CornerSet = [.topRight, .bottomRight]
+    static func cut(depth: CGFloat) -> Corner {
+        Corner(value: depth, style: .cut)
+    }
     
-    static let all: CornerSet = [.topLeft, .topRight, .bottomLeft, .bottomRight]
+    static let square = Corner(value: .zero, style: .square)
+    
+    var cornerStyle: CornerStyle {
+        get {
+            switch style {
+            case .round:  return .round(radius: value)
+            case .cut:    return .cut(depth: value)
+            case .square: return .square
+            }
+        }
+        set {
+            switch newValue {
+            case .round(radius: let radius):
+                self.style = .round
+                self.value = radius
+            case .cut(depth: let depth):
+                self.style = .cut
+                self.value = depth
+            case .square:
+                self.value = .zero
+                self.style = .square
+            }
+        }
+    }
+}
+
+extension Corner: CustomStringConvertible {
+    var description: String {
+        cornerStyle.description
+    }
 }
 
 enum CornerStyle {
@@ -58,7 +90,6 @@ extension CornerStyle {
         let checkMin: (CGFloat) -> CGFloat = { min(min($0, height/2), width/2) }
         switch self {
         case .round(radius: let radius):
-            //            path.addLine(to: CGPoint(x: width, y: height - checkMin(radius)))
             path.addQuadCurve(to: CGPoint(x: width, y: height - checkMin(radius)),
                               control: CGPoint(x: width - width*curvature/2, y: height/2))
             path.addArc(
@@ -69,14 +100,10 @@ extension CornerStyle {
                 clockwise: false
             )
         case .cut(depth: let depth):
-            //            path.addLine(to: CGPoint(x: width, y: height-checkMin(depth)))
             path.addQuadCurve(to: CGPoint(x: width, y: height-checkMin(depth)),
                               control: CGPoint(x: width - width*curvature/2, y: height/2))
-            
-            
             path.addLine(to: CGPoint(x: width-checkMin(depth), y: height))
         case .square:
-            //            path.addLine(to: CGPoint(x: width, y: height))
             path.addQuadCurve(to: CGPoint(x: width, y: height),
                               control: CGPoint(x: width - width*curvature/2, y: height/2))
         }
@@ -86,8 +113,6 @@ extension CornerStyle {
         let checkMin: (CGFloat) -> CGFloat = { min(min($0, height/2), width/2) }
         switch self {
         case .round(radius: let radius):
-            //            path.addLine(to: CGPoint(x: checkMin(radius), y: height))
-            
             path.addQuadCurve(to: CGPoint(x: checkMin(radius), y: height),
                               control: CGPoint(x: width/2, y: height - height*curvature/2))
             
@@ -99,14 +124,12 @@ extension CornerStyle {
                 clockwise: false
             )
         case .cut(depth: let depth):
-            //            path.addLine(to: CGPoint(x: checkMin(depth), y: height))
             path.addQuadCurve(to: CGPoint(x: checkMin(depth), y: height),
                               control: CGPoint(x: width/2, y: height - height*curvature/2))
             path.addLine(to: CGPoint(x: 0, y: height-checkMin(depth)))
         case .square:
             path.addQuadCurve(to: CGPoint(x: 0, y: height),
                               control: CGPoint(x: width/2, y: height - height*curvature/2))
-        //            path.addLine(to: CGPoint(x: 0, y: height))
         }
     }
     
@@ -114,7 +137,6 @@ extension CornerStyle {
         let checkMin: (CGFloat) -> CGFloat = { min(min($0, height/2), width/2) }
         switch self {
         case .round(radius: let radius):
-            //            path.addLine(to: CGPoint(x: 0, y: checkMin(radius)))
             path.addQuadCurve(to: CGPoint(x: 0, y: checkMin(radius)),
                               control: CGPoint(x: width*curvature/2, y: height/2))
             
@@ -126,18 +148,78 @@ extension CornerStyle {
                 clockwise: false
             )
         case .cut(depth: let depth):
-            //            path.addLine(to: CGPoint(x: 0, y: checkMin(depth)))
-            
             path.addQuadCurve(to: CGPoint(x: 0, y: checkMin(depth)),
                               control: CGPoint(x: width*curvature/2, y: height/2))
             
             
             path.addLine(to: CGPoint(x: checkMin(depth), y: 0))
         case .square:
-            //            path.addLine(to: .zero)
             path.addQuadCurve(to: CGPoint(x: 0, y: 0),
                               control: CGPoint(x: width*curvature/2, y: height/2))
             
         }
     }
+}
+
+
+extension CornerStyle: CustomStringConvertible {
+    
+    static let formatter: NumberFormatter = {
+        let f = NumberFormatter()
+        f.maximumFractionDigits = 3
+        
+        return f
+    }()
+    
+    var description: String {
+        switch self {
+        case .round(radius: let radius):
+            return "radius: \(Self.formatter.string(from: radius as NSNumber) ?? "")"
+        case .cut(depth: let depth):
+            return "depth: \(Self.formatter.string(from: depth as NSNumber) ?? "")"
+        case .square:
+            return "square"
+        }
+    }
+}
+
+struct CornerStyles {
+    var topLeft: Corner
+    var topRight: Corner
+    var bottomLeft: Corner
+    var bottomRight: Corner
+    
+    init(topLeft: Corner, topRight: Corner, bottomLeft: Corner, bottomRight: Corner) {
+        self.topLeft = topLeft
+        self.topRight = topRight
+        self.bottomLeft = bottomLeft
+        self.bottomRight = bottomRight
+    }
+    
+    init(_ corners: UIRectCorner = .allCorners, style: Corner) {
+        self.topLeft     = corners.contains(.topLeft)     ? style : .square
+        self.bottomLeft  = corners.contains(.bottomLeft)  ? style : .square
+        self.topRight    = corners.contains(.topRight)    ? style : .square
+        self.bottomRight = corners.contains(.bottomRight) ? style : .square
+    }
+    
+    static func allSquare() -> CornerStyles {
+        CornerStyles(topLeft: .square,
+                     topRight: .square,
+                     bottomLeft: .square,
+                     bottomRight: .square)
+    }
+}
+
+extension CornerStyles: CustomStringConvertible {
+    
+    var description: String {
+        """
+        \(topLeft.description)
+        \(topRight.description)
+        \(bottomLeft.description)
+        \(bottomRight)
+        """
+    }
+    
 }
