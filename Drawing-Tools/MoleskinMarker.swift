@@ -48,9 +48,9 @@ struct TieredStem: View {
     
     var antenna: some View {
         OmniRectangle(topLeft: .round(radius: antennaCornerRadius),
-                           topRight: .round(radius: antennaCornerRadius),
-                           bottomLeft: .square,
-                           bottomRight: .square)
+                      topRight: .round(radius: antennaCornerRadius),
+                      bottomLeft: .square,
+                      bottomRight: .square)
             .fill(antennaColor)
             .frame(width: antennaSize.width, height: antennaSize.height)
     }
@@ -73,9 +73,9 @@ struct TieredStem: View {
     
     var tier2: some View {
         OmniRectangle(topLeft: .round(radius: tier2CornerRadius),
-                           topRight: .round(radius: tier2CornerRadius),
-                           bottomLeft: .square,
-                           bottomRight: .square)
+                      topRight: .round(radius: tier2CornerRadius),
+                      bottomLeft: .square,
+                      bottomRight: .square)
             .fill(tier2Color)
             .frame(width: tier2Size.width, height: tier2Size.height)
             .overlay(HorizontalLine(offset: 1)
@@ -91,9 +91,9 @@ struct TieredStem: View {
     
     var tier3: some View {
         OmniRectangle(topLeft: .round(radius: tier3CornerRadius),
-                           topRight: .round(radius: tier3CornerRadius),
-                           bottomLeft: .square,
-                           bottomRight: .square)
+                      topRight: .round(radius: tier3CornerRadius),
+                      bottomLeft: .square,
+                      bottomRight: .square)
             .fill(tier3Color)
             .frame(width: tier3Size.width, height: tier3Size.height)
             .overlay(HorizontalLine(offset: 0.3)
@@ -107,18 +107,15 @@ struct MoleskinMarker: View {
         VStack {
             VStack(spacing: 0) {
                 OmniRectangle(topLeft: .round(radius: 2),
-                                   topRight: .round(radius: 2),
-                                   bottomLeft: .square,
-                                   bottomRight: .square)
+                              topRight: .round(radius: 2),
+                              bottomLeft: .square,
+                              bottomRight: .square)
                     .fill(Color.purple)
                     .frame(width: 12, height: 15)
-
                 TieredStem()
-                
                 RoundedRectangle(cornerRadius: 2)
                     .fill(Color.purple)
                     .frame(width: 100)
-//                    .offset(y: -2)
             }.frame(maxHeight: 600)
         }
     }
