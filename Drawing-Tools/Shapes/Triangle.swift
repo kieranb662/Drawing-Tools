@@ -54,11 +54,18 @@ extension Triangle: InsettableShape {
 }
 
 extension Triangle {
-    
     init(curvature: CGFloat = 0) {
         self.leftEdgeCurvature = curvature
         self.rightEdgeCurvature = curvature
         self.bottomEdgeCurvature = curvature
     }
-    
+}
+
+
+extension Triangle {
+    static func bulletTip() -> Triangle {
+        Triangle(leftEdgeCurvature: -1,
+                 rightEdgeCurvature: -1,
+                 bottomEdgeCurvature: 0)
+    }
 }

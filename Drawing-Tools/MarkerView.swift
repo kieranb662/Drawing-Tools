@@ -63,6 +63,7 @@ struct MarkerView<Tip: InsettableShape, Stem: InsettableShape>: View {
     }
 }
 
+
 struct MarkerExamples: View {
     var body: some View {
         HStack {
@@ -72,10 +73,10 @@ struct MarkerExamples: View {
                        strokeWidth: 60,
                        color: .yellow)
             
-//            MarkerView(tipShape: ChiselShape(),
-//                       tipSize: CGSize(width: 50, height: 50),
-//                       stemShape: BeerGlassShape(),
-//                       color: .red)
+            MarkerView(tipShape: ChiselShape(),
+                       tipSize: CGSize(width: 50, height: 50),
+                       stemShape: BeerGlassShape(),
+                       color: .red)
             
             MarkerView(tipShape: Triangle(),
                        tipSize: CGSize(width: 35, height: 50),
