@@ -9,8 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            HStack {
+                Triangle(curvature: 0.5)
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                
+                Triangle(leftEdgeCurvature: -1, rightEdgeCurvature: -1, bottomEdgeCurvature: 0)
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            }
+            
+            HStack {
+                MoleskinMarker()
+                MarkerExamples()
+            }
+        }
     }
 }
 
