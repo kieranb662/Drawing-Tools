@@ -7,55 +7,64 @@
 
 import SwiftUI
 
-struct Marker<Tip, Stem, Shaft>: View where Tip: View, Stem: View, Shaft: View {
-    var tip: (Color) -> Tip
-    var stem: (Color) -> Stem
-    var shaft: (Color) -> Shaft
-    @State var color: Color = .black
-    @State var opacity: Double = 1
+protocol MarkerStem {
+    var terminalWidth: CGFloat { get }
+}
+
+struct Marker<Tip, Stem: MarkerStem, Shaft>: View where Tip: View, Stem: View, Shaft: View {
+    var tip: (Color, CGFloat) -> Tip
+    var stem: (CGFloat) -> Stem
+    var shaft: (Color, CGFloat) -> Shaft
+    var color: Color = .black
+    var opacity: Double = 1
+    var width: CGFloat = 100
+    var stemInset: CGFloat = 0
+    var tipInset: CGFloat = 0
     
-    init(tip: @escaping (Color) -> Tip,
-         stem: @escaping (Color) -> Stem,
-         shaft: @escaping (Color) -> Shaft,
+    init(tip: @escaping (Color, CGFloat) -> Tip,
+         stem: @escaping (CGFloat) -> Stem,
+         shaft: @escaping (Color, CGFloat) -> Shaft,
          color: Color = .black,
-         opacity: Double = 1) {
+         opacity: Double = 1,
+         width: CGFloat = 100,
+         stemInset: CGFloat = 0,
+         tipInset: CGFloat = 0) {
         self.tip = tip
         self.stem = stem
         self.shaft = shaft
         self.color = color
         self.opacity = opacity
+        self.width = width
+        self.stemInset = stemInset
+        self.tipInset = tipInset
+    }
+    
+    var stemWidth: CGFloat {
+        width-2*stemInset
+    }
+    
+    var tipWidth: CGFloat {
+        stem( stemWidth).terminalWidth - 2*tipInset
     }
     
     var body: some View {
         VStack(spacing: 0) {
-            tip(color)
-            stem(color)
-            shaft(color)
+            tip(color, tipWidth)
+            stem(stemWidth)
+            shaft(color, width)
         }
     }
 }
 
-extension Marker {
-    
-    init(tip: Tip, stem: Stem, shaft: Shaft, color: Color = .black, opacity: Double = 1) {
-        self.tip = { _ in tip }
-        self.stem = { _ in stem }
-        self.shaft = { _ in shaft }
-        self.color = color
-        self.opacity = opacity
+struct Marker_Previews: PreviewProvider {
+    static var previews: some View {
+        Marker(tip: ChiselTip.init,
+               stem: BeerGlassStem.init,
+               shaft: BandedShaft.init,
+               color: .yellow,
+               opacity: 1,
+               width: 200,
+               stemInset: 0,
+               tipInset: 5)
     }
 }
-
-extension Marker where Tip: InsettableShape {
-    
-    
-    
-    
-}
-
-//
-//struct Marker_Previews: PreviewProvider {
-//    static var previews: some View {
-//
-//    }
-//}

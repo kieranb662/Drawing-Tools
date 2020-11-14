@@ -12,12 +12,54 @@ struct ContentView: View {
         VStack {
             
             HStack(alignment: .top) {
-                BulletMarkerView()
-                GemTipMarker()
-                MoleskinMarker()
-                MarkerExamples()
+                Marker(tip: ChiselTip.init,
+                       stem: BeerGlassStem.init,
+                       shaft: BandedShaft.init,
+                       color: .yellow,
+                       opacity: 1,
+                       width: 100,
+                       stemInset: 0,
+                       tipInset: 5)
+                
+                Marker(tip: ChiselTip.init,
+                       stem: TieredStem.init,
+                       shaft: BandedShaft.init,
+                       color: .blue,
+                       opacity: 1,
+                       width: 100,
+                       stemInset: 0,
+                       tipInset: 0)
+                
+                
+                Marker(tip: BulletTip.init,
+                       stem: ConcaveStem.init,
+                       shaft: RoundedShaft.init,
+                       color: .green,
+                       opacity: 1,
+                       width: 100,
+                       stemInset: 5,
+                       tipInset: 3)
+                
+                Marker(tip: PentagonalTip.init,
+                       stem: GemStem.init,
+                       shaft: RoundedShaft.init,
+                       color: .orange,
+                       opacity: 1,
+                       width: 100,
+                       stemInset: 5,
+                       tipInset: 3)
+                
+                Marker(tip: RoundedTriangleTip.init,
+                       stem: BrushStem.init,
+                       shaft: BandedShaft.init,
+                       color: .blue,
+                       opacity: 1,
+                       width: 100,
+                       stemInset: 0,
+                       tipInset: 0)
+ 
             }
-        }
+        }.frame(maxHeight: 600)
     }
 }
 

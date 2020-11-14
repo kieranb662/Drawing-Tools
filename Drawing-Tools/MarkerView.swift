@@ -80,7 +80,7 @@ struct MarkerExamples: View {
             
             MarkerView(tipShape: Triangle(),
                        tipSize: CGSize(width: 35, height: 50),
-                       stemShape: BrushStem(),
+                       stemShape: BrushStemShape(),
                        strokeWidth: 30,
                        color: .blue)
         }

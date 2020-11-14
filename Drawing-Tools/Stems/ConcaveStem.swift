@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConcaveStem: View {
-    
+    var width: CGFloat = 100
     var trapezoid1Color: Color = .black
     var trapezoid1Curvature: CGFloat = 0.05
     var trapezoid1BaseRatio: CGFloat = 0.9
@@ -25,8 +25,15 @@ struct ConcaveStem: View {
     var baseColor: Color = Color(white: 0.2)
     var baseSize: CGSize = CGSize(width: 100, height: 40)
     
-    var shaftSize: CGSize = CGSize(width: 110, height: 300)
-    var shaftCornerRadius: CGFloat = 5
+    let standardWidth: CGFloat = 100
+    
+    init(width: CGFloat = 100) {
+        self.width = width
+    }
+    
+    var scaleFactor: CGFloat {
+        width != 0 ? width/standardWidth : 1
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -37,11 +44,11 @@ struct ConcaveStem: View {
         }
     }
     
-    
     var trapezoid1: some View {
         Trapezoid(baseRatio: trapezoid1BaseRatio, curvature: trapezoid1Curvature)
             .fill(trapezoid1Color)
-            .frame(width: trapezoid1Size.width, height: trapezoid1Size.height)
+            .frame(width: scaleFactor*trapezoid1Size.width,
+                   height: scaleFactor*trapezoid1Size.height)
     }
     
     var rect: some View {
@@ -50,24 +57,37 @@ struct ConcaveStem: View {
                       bottomLeft: .square,
                       bottomRight: .square)
             .fill(rectColor)
-            .frame(width: rectSize.width, height: rectSize.height)
+            .frame(width: scaleFactor*rectSize.width,
+                   height: scaleFactor*rectSize.height)
     }
     
     var trapezoid2: some View {
         Trapezoid(baseRatio: trapezoid2BaseRatio, curvature: trapezoid2Curvature)
             .fill(trapezoid2Color)
-            .frame(width: trapezoid2Size.width, height: trapezoid2Size.height)
+            .frame(width: scaleFactor*trapezoid2Size.width,
+                   height: scaleFactor*trapezoid2Size.height)
     }
     
     var base: some View {
         Rectangle()
             .fill(baseColor)
-            .frame(width: baseSize.width, height: baseSize.height)
+            .frame(width: scaleFactor*baseSize.width,
+                   height: scaleFactor*baseSize.height)
+    }
+}
+
+extension ConcaveStem: MarkerStem {
+    var terminalWidth: CGFloat {
+        scaleFactor*trapezoid1Size.width*trapezoid1BaseRatio
     }
 }
 
 struct ConcaveStem_Previews: PreviewProvider {
     static var previews: some View {
-        ConcaveStem()
+        HStack {
+            ConcaveStem()
+            ConcaveStem(width: 150)
+            ConcaveStem(width: 50)
+        }
     }
 }

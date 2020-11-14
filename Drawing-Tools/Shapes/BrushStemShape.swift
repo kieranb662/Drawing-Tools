@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BrushStem: Shape {
+struct BrushStemShape: Shape {
     var insetAmount: CGFloat = 0
     
     func path(in rect: CGRect) -> Path {
@@ -28,7 +28,7 @@ struct BrushStem: Shape {
     }
 }
 
-extension BrushStem: InsettableShape {
+extension BrushStemShape: InsettableShape {
     public func inset(by amount: CGFloat) -> some InsettableShape {
         var shape = self
         shape.insetAmount += amount

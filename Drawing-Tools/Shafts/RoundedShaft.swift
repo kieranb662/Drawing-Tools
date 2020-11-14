@@ -9,13 +9,18 @@ import SwiftUI
 
 struct RoundedShaft: View {
     var color: Color
-    var shaftSize: CGSize = CGSize(width: 110, height: 300)
+    var width: CGFloat
     var shaftCornerRadius: CGFloat = 5
+    
+    init(color: Color, width: CGFloat = 50) {
+        self.color = color
+        self.width = width
+    }
     
     var body: some View {
         RoundedRectangle(cornerRadius: shaftCornerRadius)
             .fill(color)
-            .frame(width: shaftSize.width, height: shaftSize.height)
+            .frame(width: width)
     }
 }
 
