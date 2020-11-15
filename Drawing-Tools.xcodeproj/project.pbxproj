@@ -59,6 +59,7 @@
 		4855A0F4255F0AC5004867E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4855A107255F2922004867E0 /* BrushStemShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushStemShape.swift; sourceTree = "<group>"; };
 		4855A10A255F2A21004867E0 /* ChiselShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiselShape.swift; sourceTree = "<group>"; };
+		4874FCBF2560F7DB00CDC0FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +149,7 @@
 			children = (
 				4855A0EB255F0AC4004867E0 /* Drawing_ToolsApp.swift */,
 				4855A0ED255F0AC4004867E0 /* ContentView.swift */,
+				4874FCBF2560F7DB00CDC0FB /* README.md */,
 				484C3EB92560743800784A87 /* Shafts */,
 				484C3ED025607CE600784A87 /* Tips */,
 				484C3EBB2560746300784A87 /* Stems */,
