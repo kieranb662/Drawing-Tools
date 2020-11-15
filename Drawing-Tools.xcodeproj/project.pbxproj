@@ -131,6 +131,7 @@
 		4855A0DF255F0AC4004867E0 = {
 			isa = PBXGroup;
 			children = (
+				4874FCBF2560F7DB00CDC0FB /* README.md */,
 				4855A0EA255F0AC4004867E0 /* Drawing-Tools */,
 				4855A0E9255F0AC4004867E0 /* Products */,
 			);
@@ -149,7 +150,6 @@
 			children = (
 				4855A0EB255F0AC4004867E0 /* Drawing_ToolsApp.swift */,
 				4855A0ED255F0AC4004867E0 /* ContentView.swift */,
-				4874FCBF2560F7DB00CDC0FB /* README.md */,
 				484C3EB92560743800784A87 /* Shafts */,
 				484C3ED025607CE600784A87 /* Tips */,
 				484C3EBB2560746300784A87 /* Stems */,
