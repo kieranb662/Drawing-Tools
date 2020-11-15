@@ -7,24 +7,33 @@
 
 import SwiftUI
 
-struct BandedShaft: View {
+struct BandedShaft<Fill: ShapeStyle>: View {
     var width: CGFloat = 100
     var bandThickness: CGFloat = 40
     var color: Color
     var opacity: Double = 1
-    var shaftColor: Color = Color(white: 0.1)
+    var fill: Fill
     
-    init(color: Color, width: CGFloat = 50) {
+    init(color: Color, width: CGFloat = 50) where Fill == Color {
         self.color = color
         self.width = width
+        self.fill = Color(white: 0.1)
     }
     
-    init(color: Color, opacity: Double, width: CGFloat, bandThickness: CGFloat, shaftColor: Color = Color(white: 0.1)) {
+    init(color: Color, opacity: Double, width: CGFloat, bandThickness: CGFloat, shaftColor: Color = Color(white: 0.1)) where Fill == Color {
         self.color = color
         self.opacity = opacity
         self.width = width
         self.bandThickness = bandThickness
-        self.shaftColor = shaftColor
+        self.fill = shaftColor
+    }
+    
+    init(color: Color, opacity: Double, width: CGFloat, bandThickness: CGFloat, fill: Fill) {
+        self.color = color
+        self.opacity = opacity
+        self.width = width
+        self.bandThickness = bandThickness
+        self.fill = fill
     }
     
     var body: some View {
@@ -42,7 +51,7 @@ struct BandedShaft: View {
     
     var shaft: some View {
         Rectangle()
-            .fill(shaftColor)
+            .fill(fill)
             .frame(width: width)
     }
 }

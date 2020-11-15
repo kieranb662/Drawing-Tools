@@ -80,6 +80,29 @@ extension DrawingTool {
         self.tipInset = tipInset
     }
     
+    
+    init(
+        tip: @escaping (Color, CGFloat) -> Tip,
+        stem: Stem,
+        shaft: Shaft,
+        color: Color = .black,
+        opacity: Double = 1,
+        width: CGFloat = 100,
+        stemInset: CGFloat = 0,
+        tipInset: CGFloat = 0
+    ) {
+        self.tip = tip
+        self.stem = { _ in stem}
+        self.shaft = { _,_ in shaft}
+        self.color = color
+        self.opacity = opacity
+        self.width = width
+        self.stemInset = stemInset
+        self.tipInset = tipInset
+    }
+    
+    
+    
 }
 
 

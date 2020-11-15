@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BeerGlassStem: View {
+struct BeerGlassStem<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     var width: CGFloat = 100
     private let standardWidth: CGFloat = 100
     private var scaleFactor: CGFloat {
@@ -15,28 +15,32 @@ struct BeerGlassStem: View {
     }
     private let standardHeight: CGFloat = 150
     private let strokeStyle: StrokeStyle
-    private let color: Color
+    private let fill: Fill
+    private let stroke: Stroke
     
-    init(width: CGFloat = 100) {
+    init(width: CGFloat = 100) where Fill == Color, Stroke == Color {
         self.width = width
         self.strokeStyle = StrokeStyle(lineWidth: 4, lineJoin: .round)
-        self.color = Color(white: 0.1)
+        self.fill = Color(white: 0.1)
+        self.stroke = Color(white: 0.1)
     }
     
     init(width: CGFloat = 100,
-         color: Color = Color(white: 0.1),
+         fill: Fill,
+         stroke: Stroke,
          strokeStyle: StrokeStyle = StrokeStyle(lineWidth: 4, lineJoin: .round)) {
         self.width = width
         self.strokeStyle = strokeStyle
-        self.color = color
+        self.fill = fill
+        self.stroke = stroke
     }
     
     var body: some View {
         BeerGlassShape()
-            .fill(color)
+            .fill(fill)
             .overlay(
                 BeerGlassShape()
-                    .strokeBorder(color, style: strokeStyle)
+                    .strokeBorder(stroke, style: strokeStyle)
             )
             .frame(width: width, height: scaleFactor*standardHeight)
     }
