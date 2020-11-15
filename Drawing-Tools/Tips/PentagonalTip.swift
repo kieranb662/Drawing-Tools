@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shapes
 
 struct PentagonalTip: View {
     var color: Color = Color.purple

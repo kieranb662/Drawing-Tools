@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shapes
 
 struct BeerGlassStem<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     var width: CGFloat = 100

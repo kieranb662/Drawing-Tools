@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shapes
 
 struct FlashlightStem: View {
     var width: CGFloat = 100

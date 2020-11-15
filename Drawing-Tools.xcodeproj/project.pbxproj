@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,22 +23,14 @@
 		484C3EE02560815600784A87 /* RoundedTriangleTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484C3EDF2560815600784A87 /* RoundedTriangleTip.swift */; };
 		484C3EED2560A7DB00784A87 /* AppleInspiredTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484C3EEC2560A7DB00784A87 /* AppleInspiredTools.swift */; };
 		484C3EF12560A88300784A87 /* MoleskinInspiredTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484C3EF02560A88300784A87 /* MoleskinInspiredTools.swift */; };
-		484C3EF42560AC1500784A87 /* TickMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484C3EF32560AC1500784A87 /* TickMarks.swift */; };
 		484C3EF72560AC3E00784A87 /* Ruler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484C3EF62560AC3E00784A87 /* Ruler.swift */; };
 		4855A0EC255F0AC4004867E0 /* Drawing_ToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A0EB255F0AC4004867E0 /* Drawing_ToolsApp.swift */; };
 		4855A0EE255F0AC4004867E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A0ED255F0AC4004867E0 /* ContentView.swift */; };
 		4855A0F0255F0AC5004867E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4855A0EF255F0AC5004867E0 /* Assets.xcassets */; };
 		4855A0F3255F0AC5004867E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4855A0F2255F0AC5004867E0 /* Preview Assets.xcassets */; };
-		4855A105255F28BE004867E0 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A104255F28BE004867E0 /* Triangle.swift */; };
 		4855A108255F2922004867E0 /* BrushStemShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A107255F2922004867E0 /* BrushStemShape.swift */; };
 		4855A10B255F2A21004867E0 /* ChiselShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A10A255F2A21004867E0 /* ChiselShape.swift */; };
-		4855A10E255F2D93004867E0 /* BeerGlassShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A10D255F2D92004867E0 /* BeerGlassShape.swift */; };
-		4855A111255F2DBE004867E0 /* FlashlightShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A110255F2DBE004867E0 /* FlashlightShape.swift */; };
-		4855A116255F3500004867E0 /* Trapezoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A115255F3500004867E0 /* Trapezoid.swift */; };
-		4855A119255F3D7E004867E0 /* HorizontalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A118255F3D7E004867E0 /* HorizontalLine.swift */; };
-		4855A120255F51B3004867E0 /* OmniRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A11F255F51B3004867E0 /* OmniRectangle.swift */; };
-		4855A125255F79C3004867E0 /* CornerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A124255F79C3004867E0 /* CornerStyle.swift */; };
-		4855A129255F9357004867E0 /* OmniRectEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A128255F9357004867E0 /* OmniRectEditor.swift */; };
+		4874FCB42560F20500CDC0FB /* Shapes in Frameworks */ = {isa = PBXBuildFile; productRef = 4874FCB32560F20500CDC0FB /* Shapes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +50,6 @@
 		484C3EDF2560815600784A87 /* RoundedTriangleTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTriangleTip.swift; sourceTree = "<group>"; };
 		484C3EEC2560A7DB00784A87 /* AppleInspiredTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleInspiredTools.swift; sourceTree = "<group>"; };
 		484C3EF02560A88300784A87 /* MoleskinInspiredTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleskinInspiredTools.swift; sourceTree = "<group>"; };
-		484C3EF32560AC1500784A87 /* TickMarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickMarks.swift; sourceTree = "<group>"; };
 		484C3EF62560AC3E00784A87 /* Ruler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ruler.swift; sourceTree = "<group>"; };
 		4855A0E8255F0AC4004867E0 /* Drawing-Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drawing-Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4855A0EB255F0AC4004867E0 /* Drawing_ToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing_ToolsApp.swift; sourceTree = "<group>"; };
@@ -66,16 +57,8 @@
 		4855A0EF255F0AC5004867E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4855A0F2255F0AC5004867E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4855A0F4255F0AC5004867E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4855A104255F28BE004867E0 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		4855A107255F2922004867E0 /* BrushStemShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushStemShape.swift; sourceTree = "<group>"; };
 		4855A10A255F2A21004867E0 /* ChiselShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiselShape.swift; sourceTree = "<group>"; };
-		4855A10D255F2D92004867E0 /* BeerGlassShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerGlassShape.swift; sourceTree = "<group>"; };
-		4855A110255F2DBE004867E0 /* FlashlightShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashlightShape.swift; sourceTree = "<group>"; };
-		4855A115255F3500004867E0 /* Trapezoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trapezoid.swift; sourceTree = "<group>"; };
-		4855A118255F3D7E004867E0 /* HorizontalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLine.swift; sourceTree = "<group>"; };
-		4855A11F255F51B3004867E0 /* OmniRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniRectangle.swift; sourceTree = "<group>"; };
-		4855A124255F79C3004867E0 /* CornerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerStyle.swift; sourceTree = "<group>"; };
-		4855A128255F9357004867E0 /* OmniRectEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniRectEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4874FCB42560F20500CDC0FB /* Shapes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,14 +76,6 @@
 		484C3EB7256073E500784A87 /* Shapes */ = {
 			isa = PBXGroup;
 			children = (
-				4855A124255F79C3004867E0 /* CornerStyle.swift */,
-				4855A10D255F2D92004867E0 /* BeerGlassShape.swift */,
-				484C3EF32560AC1500784A87 /* TickMarks.swift */,
-				4855A110255F2DBE004867E0 /* FlashlightShape.swift */,
-				4855A104255F28BE004867E0 /* Triangle.swift */,
-				4855A115255F3500004867E0 /* Trapezoid.swift */,
-				4855A11F255F51B3004867E0 /* OmniRectangle.swift */,
-				4855A118255F3D7E004867E0 /* HorizontalLine.swift */,
 				4855A107255F2922004867E0 /* BrushStemShape.swift */,
 				4855A10A255F2A21004867E0 /* ChiselShape.swift */,
 			);
@@ -177,7 +153,6 @@
 				484C3EBB2560746300784A87 /* Stems */,
 				484C3EB7256073E500784A87 /* Shapes */,
 				484C3EEB2560A7C400784A87 /* Tools */,
-				4855A128255F9357004867E0 /* OmniRectEditor.swift */,
 				4855A0EF255F0AC5004867E0 /* Assets.xcassets */,
 				4855A0F4255F0AC5004867E0 /* Info.plist */,
 				4855A0F1255F0AC5004867E0 /* Preview Content */,
@@ -209,6 +184,9 @@
 			dependencies = (
 			);
 			name = "Drawing-Tools";
+			packageProductDependencies = (
+				4874FCB32560F20500CDC0FB /* Shapes */,
+			);
 			productName = "Drawing-Tools";
 			productReference = 4855A0E8255F0AC4004867E0 /* Drawing-Tools.app */;
 			productType = "com.apple.product-type.application";
@@ -236,6 +214,9 @@
 				Base,
 			);
 			mainGroup = 4855A0DF255F0AC4004867E0;
+			packageReferences = (
+				4874FCB22560F20500CDC0FB /* XCRemoteSwiftPackageReference "SwiftUI-Shapes" */,
+			);
 			productRefGroup = 4855A0E9255F0AC4004867E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -265,32 +246,23 @@
 				484C3EDA25607EEE00784A87 /* PentagonalTip.swift in Sources */,
 				484C3ECD25607B4D00784A87 /* TieredStem.swift in Sources */,
 				4855A0EE255F0AC4004867E0 /* ContentView.swift in Sources */,
-				484C3EF42560AC1500784A87 /* TickMarks.swift in Sources */,
-				4855A129255F9357004867E0 /* OmniRectEditor.swift in Sources */,
 				484C3ED225607CFD00784A87 /* ChiselTip.swift in Sources */,
-				4855A105255F28BE004867E0 /* Triangle.swift in Sources */,
-				4855A125255F79C3004867E0 /* CornerStyle.swift in Sources */,
 				484C3EF72560AC3E00784A87 /* Ruler.swift in Sources */,
 				484C3EB5256072CB00784A87 /* ConcaveStem.swift in Sources */,
 				484C3EC525607A0500784A87 /* FlashlightStem.swift in Sources */,
 				484C3EAB2560690600784A87 /* DrawingTool.swift in Sources */,
 				4855A10B255F2A21004867E0 /* ChiselShape.swift in Sources */,
 				484C3EF12560A88300784A87 /* MoleskinInspiredTools.swift in Sources */,
-				4855A10E255F2D93004867E0 /* BeerGlassShape.swift in Sources */,
 				484C3EAF256071DF00784A87 /* BandedShaft.swift in Sources */,
 				484C3EDD256080AA00784A87 /* FineTip.swift in Sources */,
-				4855A111255F2DBE004867E0 /* FlashlightShape.swift in Sources */,
 				4855A108255F2922004867E0 /* BrushStemShape.swift in Sources */,
-				4855A116255F3500004867E0 /* Trapezoid.swift in Sources */,
 				484C3EE02560815600784A87 /* RoundedTriangleTip.swift in Sources */,
 				484C3EB22560724400784A87 /* RoundedShaft.swift in Sources */,
 				484C3EED2560A7DB00784A87 /* AppleInspiredTools.swift in Sources */,
-				4855A120255F51B3004867E0 /* OmniRectangle.swift in Sources */,
 				484C3EC22560791C00784A87 /* BeerGlassStem.swift in Sources */,
 				484C3EBE256074AA00784A87 /* GemStem.swift in Sources */,
 				4855A0EC255F0AC4004867E0 /* Drawing_ToolsApp.swift in Sources */,
 				484C3ED625607DF700784A87 /* BulletTip.swift in Sources */,
-				4855A119255F3D7E004867E0 /* HorizontalLine.swift in Sources */,
 				484C3ECA25607A6900784A87 /* BrushStem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +452,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4874FCB22560F20500CDC0FB /* XCRemoteSwiftPackageReference "SwiftUI-Shapes" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kieranb662/SwiftUI-Shapes.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4874FCB32560F20500CDC0FB /* Shapes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4874FCB22560F20500CDC0FB /* XCRemoteSwiftPackageReference "SwiftUI-Shapes" */;
+			productName = Shapes;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4855A0E0255F0AC4004867E0 /* Project object */;
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shapes 
 
 struct RulerIcon: View {
     var length: CGFloat = 500
@@ -19,7 +20,9 @@ struct RulerIcon: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            TickMarks(spacing: tickSpacing, ticks: Int(length/tickSpacing))
+            TickMarks(spacing: tickSpacing,
+                      ticks: Int(length/tickSpacing),
+                      isVertical: true)
                 .stroke(tickColor)
                 .frame(width: majorTickLength)
                 .padding(.vertical, 6)
