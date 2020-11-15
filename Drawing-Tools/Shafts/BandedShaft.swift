@@ -9,13 +9,22 @@ import SwiftUI
 
 struct BandedShaft: View {
     var width: CGFloat = 100
-    var strokeWidth: CGFloat = 40
+    var bandThickness: CGFloat = 40
     var color: Color
     var opacity: Double = 1
+    var shaftColor: Color = Color(white: 0.1)
     
     init(color: Color, width: CGFloat = 50) {
         self.color = color
         self.width = width
+    }
+    
+    init(color: Color, opacity: Double, width: CGFloat, bandThickness: CGFloat, shaftColor: Color = Color(white: 0.1)) {
+        self.color = color
+        self.opacity = opacity
+        self.width = width
+        self.bandThickness = bandThickness
+        self.shaftColor = shaftColor
     }
     
     var body: some View {
@@ -28,12 +37,12 @@ struct BandedShaft: View {
     var band: some View {
         Rectangle()
             .fill(color)
-            .frame(width: width, height: strokeWidth)
+            .frame(width: width, height: bandThickness)
     }
     
     var shaft: some View {
         Rectangle()
-            .fill()
+            .fill(shaftColor)
             .frame(width: width)
     }
 }

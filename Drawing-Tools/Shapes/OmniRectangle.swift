@@ -49,31 +49,19 @@ struct OmniRectangle: Shape {
     var edgeStyles: EdgeStyles
     
     // TODO: Add in the animation data for the corner styles
-    var animatableData: AnimatablePair<
-        AnimatablePair<AnimatablePair<CGFloat, CGFloat>,
-                       AnimatablePair<CGFloat, CGFloat>>,
-        AnimatablePair<AnimatablePair<CGFloat, CGFloat>,
-                       AnimatablePair<CGFloat, CGFloat>>> {
+    var animatableData: AnimatablePair<AnimatablePair<CGFloat, CGFloat>,
+                                       AnimatablePair<CGFloat, CGFloat>> {
         get {
             AnimatablePair(
-                AnimatablePair(
-                    AnimatablePair(edgeStyles.leftCurvature, edgeStyles.topCurvature),
-                    AnimatablePair(edgeStyles.rightCurvature, edgeStyles.bottomCurvature)
-                ), AnimatablePair(
-                    AnimatablePair(cornerStyles.topLeft.value, cornerStyles.topRight.value),
-                    AnimatablePair(cornerStyles.bottomLeft.value, cornerStyles.bottomRight.value)
-                )
+                AnimatablePair(edgeStyles.leftCurvature, edgeStyles.topCurvature),
+                AnimatablePair(edgeStyles.rightCurvature, edgeStyles.bottomCurvature)
             )
         }
         set {
-            edgeStyles[keyPath: \.leftCurvature] = newValue.first.first.first
-            edgeStyles[keyPath: \.topCurvature] = newValue.first.first.second
-            edgeStyles[keyPath: \.rightCurvature] = newValue.first.second.first
-            edgeStyles[keyPath: \.bottomCurvature] = newValue.first.second.second
-            cornerStyles[keyPath: \.topLeft][keyPath: \.value] = newValue.second.first.first
-            cornerStyles[keyPath: \.topRight][keyPath: \.value] = newValue.second.first.second
-            cornerStyles[keyPath: \.bottomLeft][keyPath: \.value] = newValue.second.second.first
-            cornerStyles[keyPath: \.bottomRight][keyPath: \.value] = newValue.second.second.second
+            edgeStyles[keyPath: \.leftCurvature] = newValue.first.first
+            edgeStyles[keyPath: \.topCurvature] = newValue.first.second
+            edgeStyles[keyPath: \.rightCurvature] = newValue.second.first
+            edgeStyles[keyPath: \.bottomCurvature] = newValue.second.second
         }
     }
     
@@ -147,7 +135,9 @@ extension OmniRectangle {
     }
 }
 
-struct AnyCornerRectangle_Previews: PreviewProvider {
+// MARK: - This preview is meant to be used on an iPad Pro 12.9in simulator
+
+struct OmniRectangle_Previews: PreviewProvider {
     static let roundThinStrokeStyle = StrokeStyle(lineWidth: 1, lineJoin: .round)
     static let roundThickStrokeStyle = StrokeStyle(lineWidth: 30, lineJoin: .round)
     static let miterThinStrokeStyle = StrokeStyle(lineWidth: 1, lineJoin: .miter)
@@ -232,7 +222,6 @@ struct AnyCornerRectangle_Previews: PreviewProvider {
                         .edgesIgnoringSafeArea(.top)
                         .frame(height: 120)
                     header()
-                    
                 }) {
                     Group {
                         makeRow(squareCornersFlatEdges)

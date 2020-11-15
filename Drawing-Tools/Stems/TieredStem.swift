@@ -9,45 +9,73 @@ import SwiftUI
 
 struct TieredStem: View {
     var width: CGFloat = 90
-    
-    let standardWidth: CGFloat = 90
-    
-    var scaleFactor: CGFloat {
+    private let standardWidth: CGFloat = 90
+    private var scaleFactor: CGFloat {
         width != 0 ? width/standardWidth : 1
     }
+    private let antennaSize: CGSize    = CGSize(width: 15, height: 30)
+    private let trapezoid1Size: CGSize = CGSize(width: 40, height: 10)
+    private let tier1Size: CGSize      = CGSize(width: 40, height: 10)
+    private let tier2Size: CGSize      = CGSize(width: 50, height: 10)
+    private let trapezoid2Size: CGSize = CGSize(width: 75, height: 125)
+    private let tier3Size: CGSize      = CGSize(width: 90, height: 25)
+    private let antennaCornerRadius: CGFloat = 2
+    private let trapezoid1BaseRatio: CGFloat = 0.5
+    private let tier2CornerRadius: CGFloat = 3
+    private let trapezoid2BaseRatio: CGFloat = 0.8
+    private let tier3CornerRadius: CGFloat = 2
+    private let bandThickness: CGFloat = 3
+    private var style: Style
     
-    init(width: CGFloat = 90) {
+    init(width: CGFloat = 100) {
         self.width = width
+        self.style = .init()
     }
     
-    var antennaColor: Color = .gray
-    var antennaSize: CGSize = CGSize(width: 15, height: 30)
-    var antennaCornerRadius: CGFloat = 2
+    init(width: CGFloat = 100, style: Style = .init()) {
+        self.width = width
+        self.style = style
+    }
     
-    var trapezoid1Color: Color = Color(white: 0.4)
-    var trapezoid1Size: CGSize = CGSize(width: 40, height: 10)
-    var trapezoid1BaseRatio: CGFloat = 0.5
-    
-    var tier1Color: Color = Color(white: 0.2)
-    var tier1Size: CGSize = CGSize(width: 40, height: 10)
-    var tier1TopColor: Color = Color(white: 0.3)
-    var tier1BottomColor: Color = Color(white: 0.3)
-    
-    var tier2Color: Color = .black
-    var tier2Size: CGSize = CGSize(width: 50, height: 10)
-    var tier2BottomColor: Color = Color(white: 0.3)
-    var tier2CornerRadius: CGFloat = 3
-    
-    var trapezoid2Color: Color = .black
-    var trapezoid2Size: CGSize = CGSize(width: 75, height: 125)
-    var trapezoid2BaseRatio: CGFloat = 0.8
-    
-    var tier3Color: Color = Color(white: 0.2)
-    var tier3Size: CGSize = CGSize(width: 90, height: 25)
-    var tier3BottomColor: Color = Color(white: 0.3)
-    var tier3CornerRadius: CGFloat = 2
-    var bandColor: Color = Color(white: 0.05)
-    var bandThickness: CGFloat = 3
+    struct Style {
+        var antennaColor: Color
+        var trapezoid1Color: Color
+        var tier1Color: Color
+        var tier1TopColor: Color
+        var tier1BottomColor: Color
+        var tier2Color: Color
+        var tier2BottomColor: Color
+        var trapezoid2Color: Color
+        var tier3Color: Color
+        var tier3BottomColor: Color
+        var bandColor: Color
+        
+        public init(
+            antennaColor: Color     = .gray,
+            trapezoid1Color: Color  = Color(white: 0.4),
+            tier1Color: Color       = Color(white: 0.2),
+            tier1TopColor: Color    = Color(white: 0.3),
+            tier1BottomColor: Color = Color(white: 0.3),
+            tier2Color: Color       = Color(white: 0.05),
+            tier2BottomColor: Color = Color(white: 0.3),
+            trapezoid2Color: Color  = Color(white: 0.05),
+            tier3Color: Color       = Color(white: 0.2),
+            tier3BottomColor: Color = Color(white: 0.3),
+            bandColor: Color        = Color(white: 0.05)
+        ) {
+            self.antennaColor = antennaColor
+            self.trapezoid1Color = trapezoid1Color
+            self.tier1Color = tier1Color
+            self.tier1TopColor = tier1TopColor
+            self.tier1BottomColor = tier1BottomColor
+            self.tier2Color = tier2Color
+            self.tier2BottomColor = tier2BottomColor
+            self.trapezoid2Color = trapezoid2Color
+            self.tier3Color = tier3Color
+            self.tier3BottomColor = tier3BottomColor
+            self.bandColor = bandColor
+        }
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -65,23 +93,23 @@ struct TieredStem: View {
                       topRight: .round(radius: antennaCornerRadius),
                       bottomLeft: .square,
                       bottomRight: .square)
-            .fill(antennaColor)
+            .fill(style.antennaColor)
             .frame(width: scaleFactor*antennaSize.width, height: scaleFactor*antennaSize.height)
     }
     
     var trapezoid1: some View {
         Trapezoid(baseRatio: trapezoid1BaseRatio)
-            .fill(trapezoid1Color)
+            .fill(style.trapezoid1Color)
             .frame(width: scaleFactor*trapezoid1Size.width, height: scaleFactor*trapezoid1Size.height)
     }
     
     var tier1: some View {
         Rectangle()
-            .fill(tier1Color)
+            .fill(style.tier1Color)
             .overlay(HorizontalLine(offset: 0)
-                        .stroke(tier1TopColor, style: StrokeStyle(lineCap: .butt)), alignment: .top)
+                        .stroke(style.tier1TopColor, style: StrokeStyle(lineCap: .butt)), alignment: .top)
             .overlay(HorizontalLine(offset: 1)
-                        .stroke(tier1BottomColor), alignment: .bottom)
+                        .stroke(style.tier1BottomColor), alignment: .bottom)
             .frame(width: scaleFactor*tier1Size.width, height: scaleFactor*tier1Size.height)
     }
     
@@ -90,16 +118,16 @@ struct TieredStem: View {
                       topRight: .round(radius: tier2CornerRadius),
                       bottomLeft: .square,
                       bottomRight: .square)
-            .fill(tier2Color)
+            .fill(style.tier2Color)
             .frame(width: scaleFactor*tier2Size.width, height: scaleFactor*tier2Size.height)
             .overlay(HorizontalLine(offset: 1)
-                        .stroke(tier2BottomColor),
+                        .stroke(style.tier2BottomColor),
                      alignment: .bottom)
     }
     
     var trapezoid2: some View {
         Trapezoid(baseRatio: trapezoid2BaseRatio)
-            .fill(trapezoid2Color)
+            .fill(style.trapezoid2Color)
             .frame(width: scaleFactor*trapezoid2Size.width, height: scaleFactor*trapezoid2Size.height)
     }
     
@@ -108,15 +136,15 @@ struct TieredStem: View {
                       topRight: .round(radius: tier3CornerRadius),
                       bottomLeft: .square,
                       bottomRight: .square)
-            .fill(tier3Color)
+            .fill(style.tier3Color)
             .frame(width: scaleFactor*tier3Size.width, height: scaleFactor*tier3Size.height)
             .overlay(HorizontalLine(offset: 0.3)
-                        .stroke(bandColor, lineWidth: bandThickness))
+                        .stroke(style.bandColor, lineWidth: bandThickness))
     }
     
 }
 
-extension TieredStem: MarkerStem {
+extension TieredStem: DrawingToolStem {
     var terminalWidth: CGFloat {
         scaleFactor*antennaSize.width
     }

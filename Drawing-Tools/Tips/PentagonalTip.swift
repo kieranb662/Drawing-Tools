@@ -10,22 +10,26 @@ import SwiftUI
 struct PentagonalTip: View {
     var color: Color = Color.purple
     var width: CGFloat = 20
-    
-    let standardWidth: CGFloat = 20
+    private var scaleFactor: CGFloat {
+        width > 0 ? width/standardWidth : 1
+    }
+    private let standardWidth: CGFloat = 20
+    private let triangleHeight: CGFloat = 23
+    private let rectangleHeight: CGFloat = 15
     
     init(color: Color, width: CGFloat = 50) {
         self.color = color
         self.width = width
     }
     
-    var scaleFactor: CGFloat {
-        width > 0 ? width/standardWidth : 1
+    var body: some View {
+        VStack(spacing: 0) {
+            triangle
+            rectangle
+        }
     }
-        
-    let triangleHeight: CGFloat = 23
-    let rectHeight: CGFloat = 15
     
-    var tipTriangle: some View {
+    var triangle: some View {
         Triangle()
             .fill(color)
             .overlay(Triangle()
@@ -34,20 +38,13 @@ struct PentagonalTip: View {
             .offset(y: 2)
     }
     
-    var tipRect: some View {
+    var rectangle: some View {
         Rectangle()
             .fill(color)
             .overlay(Rectangle()
                         .strokeBorder(color, style: StrokeStyle(lineWidth: 5, lineJoin: .round)))
             .brightness(0.05)
-            .frame(width: width, height: scaleFactor*rectHeight)
-    }
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            tipTriangle
-            tipRect
-        }
+            .frame(width: width, height: scaleFactor*rectangleHeight)
     }
 }
 

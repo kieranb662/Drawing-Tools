@@ -8,58 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            
-            HStack(alignment: .top) {
-                Marker(tip: ChiselTip.init,
-                       stem: BeerGlassStem.init,
-                       shaft: BandedShaft.init,
-                       color: .yellow,
-                       opacity: 1,
-                       width: 100,
-                       stemInset: 0,
-                       tipInset: 5)
-                
-                Marker(tip: ChiselTip.init,
-                       stem: TieredStem.init,
-                       shaft: BandedShaft.init,
-                       color: .blue,
-                       opacity: 1,
-                       width: 100,
-                       stemInset: 0,
-                       tipInset: 0)
-                
-                
-                Marker(tip: BulletTip.init,
-                       stem: ConcaveStem.init,
-                       shaft: RoundedShaft.init,
-                       color: .green,
-                       opacity: 1,
-                       width: 100,
-                       stemInset: 5,
-                       tipInset: 3)
-                
-                Marker(tip: PentagonalTip.init,
-                       stem: GemStem.init,
-                       shaft: RoundedShaft.init,
-                       color: .orange,
-                       opacity: 1,
-                       width: 100,
-                       stemInset: 5,
-                       tipInset: 3)
-                
-                Marker(tip: RoundedTriangleTip.init,
-                       stem: BrushStem.init,
-                       shaft: BandedShaft.init,
-                       color: .blue,
-                       opacity: 1,
-                       width: 100,
-                       stemInset: 0,
-                       tipInset: 0)
- 
+        ScrollView(.horizontal) {
+            HStack {
+                // Apple inspired
+                DrawingTool.pen(color: .blue, width: 75, bandThickness: 10)
+                DrawingTool.marker(color: .purple, width: 75)
+                RulerIcon(length: 600)
+                // Moleskin inspired
+                DrawingTool.chiselMarker(color: .yellow, width: 75)
+                DrawingTool.roundMarker(color: .green, width: 75)
+                DrawingTool.fineTipPen(color: .pink, width: 75)
+                DrawingTool.graphitePencil(color: .gray, width: 75)
             }
-        }.frame(maxHeight: 600)
+            .frame(height: 600)
+        }
     }
 }
 

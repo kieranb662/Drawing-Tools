@@ -9,32 +9,53 @@ import SwiftUI
 
 struct GemStem: View {
     var width: CGFloat = 90
-    var trapezoid1Color: Color = Color(white: 0.4)
+    private let standardWidth: CGFloat = 90
+    var scaleFactor: CGFloat {
+        width != 0 ? width/standardWidth : 1
+    }
+    var trapezoid1Size: CGSize = CGSize(width: 35, height: 10)
+    var trapezoid2Size: CGSize = CGSize(width: 35, height: 25)
+    var trapezoid3Size: CGSize = CGSize(width: 90, height: 120)
+    var baseSize: CGSize       = CGSize(width: 90, height: 20)
+    
     var trapezoid1Curvature: CGFloat = 0
     var trapezoid1BaseRatio: CGFloat = 0.7
-    var trapezoid1Size: CGSize = CGSize(width: 35, height: 10)
     
-    var trapezoid2Color: Color = Color(white: 0.3)
     var trapezoid2Curvature: CGFloat = 0
     var trapezoid2BaseRatio: CGFloat = 0.8
-    var trapezoid2Size: CGSize = CGSize(width: 35, height: 25)
     
-    var trapezoid3Color: Color = Color(white: 0.2)
     var trapezoid3Curvature: CGFloat = 0
     var trapezoid3BaseRatio: CGFloat = 0.4
-    var trapezoid3Size: CGSize = CGSize(width: 90, height: 120)
     
-    var baseColor: Color = Color(white: 0.3)
-    var baseSize: CGSize = CGSize(width: 90, height: 20)
-    
-    let standardWidth: CGFloat = 90
+    var style: Style
     
     init(width: CGFloat = 90) {
         self.width = width
+        self.style = .init()
     }
     
-    var scaleFactor: CGFloat {
-        width != 0 ? width/standardWidth : 1
+    init(width: CGFloat = 90, style: Style = .init()) {
+        self.width = width
+        self.style = style
+    }
+    
+    struct Style {
+        var trapezoid1Color: Color
+        var trapezoid2Color: Color
+        var trapezoid3Color: Color
+        var baseColor: Color
+        
+        public init(
+            trapezoid1Color: Color = Color(white: 0.4),
+            trapezoid2Color: Color = Color(white: 0.3),
+            trapezoid3Color: Color = Color(white: 0.2),
+            baseColor: Color       = Color(white: 0.3)
+        ) {
+            self.trapezoid1Color = trapezoid1Color
+            self.trapezoid2Color = trapezoid2Color
+            self.trapezoid3Color = trapezoid3Color
+            self.baseColor = baseColor
+        }
     }
     
     var body: some View {
@@ -48,39 +69,45 @@ struct GemStem: View {
     
     var trapezoid1: some View {
         Trapezoid(baseRatio: trapezoid1BaseRatio, curvature: trapezoid1Curvature)
-            .fill(trapezoid1Color)
+            .fill(style.trapezoid1Color)
             .frame(width: scaleFactor*trapezoid1Size.width,
                    height: scaleFactor*trapezoid1Size.height)
     }
     
     
     var trapezoid2: some View {
-        Trapezoid(baseRatio: trapezoid2BaseRatio, curvature: trapezoid2Curvature)
-            .transform(.init(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: scaleFactor*trapezoid2Size.height))
-            .fill(trapezoid2Color)
+        let transform = CGAffineTransform(a: 1, b: 0,
+                                          c: 0, d: -1,
+                                          tx: 0, ty: scaleFactor*trapezoid2Size.height)
+        
+        return Trapezoid(baseRatio: trapezoid2BaseRatio, curvature: trapezoid2Curvature)
+            .transform(transform)
+            .fill(style.trapezoid2Color)
             .frame(width: scaleFactor*trapezoid2Size.width,
                    height: scaleFactor*trapezoid2Size.height)
     }
     
     var trapezoid3: some View {
         Trapezoid(baseRatio: trapezoid3BaseRatio, curvature: trapezoid3Curvature)
-            .fill(trapezoid3Color)
-            .overlay(Trapezoid(baseRatio: trapezoid3BaseRatio,
-                               curvature: trapezoid3Curvature)
-                        .strokeBorder(trapezoid3Color, style: StrokeStyle(lineWidth: 5, lineJoin: .round)))
+            .fill(style.trapezoid3Color)
+            .overlay(
+                Trapezoid(baseRatio: trapezoid3BaseRatio,
+                          curvature: trapezoid3Curvature)
+                    .strokeBorder(style.trapezoid3Color, style: StrokeStyle(lineWidth: 5, lineJoin: .round))
+            )
             .frame(width: scaleFactor*trapezoid3Size.width,
                    height: scaleFactor*trapezoid3Size.height)
     }
     
     var base: some View {
         Rectangle()
-            .fill(baseColor)
+            .fill(style.baseColor)
             .frame(width: scaleFactor*baseSize.width,
                    height: scaleFactor*baseSize.height)
     }
 }
 
-extension GemStem: MarkerStem {
+extension GemStem: DrawingToolStem {
     var terminalWidth: CGFloat {
         scaleFactor*trapezoid1Size.width*trapezoid1BaseRatio
     }

@@ -7,20 +7,19 @@
 
 import SwiftUI
 
-struct RoundedRectangleTip: View {
+struct FineTip: View {
     var color: Color
     var width: CGFloat = 12
-    let standardWidth: CGFloat = 12
-    let standardHeight: CGFloat = 15
-    let strokeStyle: StrokeStyle = StrokeStyle(lineWidth: 7, lineJoin: .round)
+    private let standardWidth: CGFloat = 12
+    private var scaleFactor: CGFloat {
+        width != 0 ? width/standardWidth : 1
+    }
+    private let standardHeight: CGFloat = 15
+    private let strokeStyle: StrokeStyle = StrokeStyle(lineWidth: 7, lineJoin: .round)
     
     init(color: Color, width: CGFloat = 50) {
         self.color = color
         self.width = width
-    }
-    
-    var scaleFactor: CGFloat {
-        width != 0 ? width/standardWidth : 1
     }
     
     var body: some View {
@@ -36,9 +35,9 @@ struct RoundedRectangleTip: View {
 struct RoundedRectangleTip_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
-            RoundedRectangleTip(color: .orange)
-            RoundedRectangleTip(color: .orange, width: 100)
-            RoundedRectangleTip(color: .orange, width: 50)
+            FineTip(color: .orange)
+            FineTip(color: .orange, width: 100)
+            FineTip(color: .orange, width: 50)
         }
     }
 }

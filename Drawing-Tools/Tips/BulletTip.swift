@@ -10,18 +10,17 @@ import SwiftUI
 struct BulletTip: View {
     var color: Color
     var width: CGFloat = 50
-    let standardWidth: CGFloat = 40
-    let standardHeight: CGFloat = 70
+    private let standardWidth: CGFloat = 40
+    private let standardHeight: CGFloat = 70
+    private var scaleFactor: CGFloat {
+        width != 0 ? width/standardWidth : 1
+    }
     
     init(color: Color, width: CGFloat = 50) {
         self.color = color
         self.width = width
     }
-    
-    var scaleFactor: CGFloat {
-        width != 0 ? width/standardWidth : 1
-    }
-    
+
     var body: some View {
         Triangle.bulletTip()
             .fill(color)

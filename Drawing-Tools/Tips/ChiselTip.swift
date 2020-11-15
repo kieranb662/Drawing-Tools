@@ -10,17 +10,16 @@ import SwiftUI
 struct ChiselTip: View {
     var color: Color
     var width: CGFloat = 50
-    let standardWidth: CGFloat = 50
-    let standardHeight: CGFloat = 50
-    let strokeStyle: StrokeStyle = StrokeStyle(lineWidth: 7, lineJoin: .round)
+    private let standardWidth: CGFloat = 50
+    private let standardHeight: CGFloat = 50
+    private var scaleFactor: CGFloat {
+        width != 0 ? width/standardWidth : 1
+    }
+    private let strokeStyle: StrokeStyle = StrokeStyle(lineWidth: 7, lineJoin: .round)
     
     init(color: Color, width: CGFloat = 50) {
         self.color = color
         self.width = width
-    }
-    
-    var scaleFactor: CGFloat {
-        width != 0 ? width/standardWidth : 1
     }
     
     var body: some View {
@@ -33,8 +32,6 @@ struct ChiselTip: View {
             .frame(width: width, height: scaleFactor*standardHeight)
     }
 }
-
-
 
 struct ChiselTip_Previews: PreviewProvider {
     static var previews: some View {
