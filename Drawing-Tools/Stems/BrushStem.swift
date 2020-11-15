@@ -46,7 +46,7 @@ struct BrushStem<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     }
 }
 
-extension BrushStem: DrawingToolStem {
+extension BrushStem: DrawingToolComponent {
     var terminalWidth: CGFloat {
         width*0.4
     }

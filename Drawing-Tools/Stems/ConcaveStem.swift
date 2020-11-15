@@ -97,7 +97,7 @@ struct ConcaveStem: View {
     }
 }
 
-extension ConcaveStem: DrawingToolStem {
+extension ConcaveStem: DrawingToolComponent {
     var terminalWidth: CGFloat {
         scaleFactor*trapezoid1Size.width*trapezoid1BaseRatio
     }

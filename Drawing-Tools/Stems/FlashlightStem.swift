@@ -43,7 +43,7 @@ struct FlashlightStem: View {
     }
 }
 
-extension FlashlightStem: DrawingToolStem {
+extension FlashlightStem: DrawingToolComponent {
     var terminalWidth: CGFloat {
         0.6*width
     }

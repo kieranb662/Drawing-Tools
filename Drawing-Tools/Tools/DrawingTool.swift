@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-protocol DrawingToolStem {
+protocol DrawingToolComponent {
     var terminalWidth: CGFloat { get }
 }
 
-struct DrawingTool<Tip, Stem: DrawingToolStem, Shaft>: View where Tip: View, Stem: View, Shaft: View {
+struct DrawingTool<Tip, Stem: DrawingToolComponent, Shaft>: View where Tip: View, Stem: View, Shaft: View {
     var tip: (Color, CGFloat) -> Tip
     var stem: (CGFloat) -> Stem
     var shaft: (Color, CGFloat) -> Shaft

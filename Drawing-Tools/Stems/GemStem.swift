@@ -108,7 +108,7 @@ struct GemStem: View {
     }
 }
 
-extension GemStem: DrawingToolStem {
+extension GemStem: DrawingToolComponent {
     var terminalWidth: CGFloat {
         scaleFactor*trapezoid1Size.width*trapezoid1BaseRatio
     }

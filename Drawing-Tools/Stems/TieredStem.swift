@@ -145,7 +145,7 @@ struct TieredStem: View {
     
 }
 
-extension TieredStem: DrawingToolStem {
+extension TieredStem: DrawingToolComponent {
     var terminalWidth: CGFloat {
         scaleFactor*antennaSize.width
     }

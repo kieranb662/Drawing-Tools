@@ -47,7 +47,7 @@ struct BeerGlassStem<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     }
 }
 
-extension BeerGlassStem: DrawingToolStem {
+extension BeerGlassStem: DrawingToolComponent {
     var terminalWidth: CGFloat {
         width*0.6
     }
