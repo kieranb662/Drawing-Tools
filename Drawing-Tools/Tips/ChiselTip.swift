@@ -23,13 +23,15 @@ struct ChiselTip: View {
     }
     
     var body: some View {
-        ChiselShape()
-            .fill(color)
-            .overlay(
-                ChiselShape()
-                    .strokeBorder(color, style: strokeStyle)
-            )
-            .frame(width: width, height: scaleFactor*standardHeight)
+        ZStack {
+            ChiselShape()
+                .stroke(color, style: strokeStyle)
+                .frame(width: width-3, height: scaleFactor*(standardHeight-3))
+            ChiselShape()
+                .fill(color)
+                .frame(width: width-3, height: scaleFactor*(standardHeight-3))
+            
+        }.padding(3)
     }
 }
 

@@ -30,7 +30,7 @@ extension DrawingTool {
                     opacity: opacity,
                     width: width,
                     stemInset: 5,
-                    tipInset: 3)
+                    tipInset: 4)
     }
     
     static func graphitePencil(color: Color, opacity: Double = 1, width: CGFloat = 100) -> DrawingTool where Tip == PentagonalTip, Stem == GemStem, Shaft == RoundedShaft  {
